@@ -1,0 +1,61 @@
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    gap: 20px;
+}
+
+.contenedor * {
+    font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+    font-size: 20px;
+    color: black;
+}
+
+.buttonPrevious{
+    background-color: transparent;
+    border: none;
+}
+
+.buttonPrevious img{
+    width: 50px;
+}
+
+.buttonNext{
+    background-color: transparent;
+    border: none;
+}
+
+.buttonNext img{
+    width: 50px;
+}
+
+.buttonNext img:hover{
+    cursor: pointer;
+    animation: bounce1 .5s alternate infinite ease-in;
+}
+
+.buttonPrevious img:hover{
+    cursor: pointer;
+    animation: bounce2 .5s alternate infinite ease-in;
+}
+
+@keyframes bounce1 {
+    0%{
+        transform: translateX(10%)
+    }
+    100%{
+        transform: translateX(-10%)
+    }
+}
+
+@keyframes bounce2 {
+    0%{
+        transform: translateX(-10%)
+    }
+    100%{
+        transform: translateX(10%)
+    }
+}

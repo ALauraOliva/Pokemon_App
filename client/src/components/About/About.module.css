@@ -1,0 +1,102 @@
+.aboutcontainer {
+    padding: 40px;
+    background-image: url('../../Images/bkg2.png');
+    background-size: contain;
+    height: calc(100vh - 120px);
+    font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+  }
+
+  .aboutcontent {
+    padding: 0 90px 0 90px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .abouttitle {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .aboutdescription {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .aboutImg {
+    text-align: center;
+  }
+
+  .aboutImg img{
+    animation: rotate360 20s linear infinite;
+  }
+
+  .pokemonball {
+    border: 3px solid white  ;
+    border-radius: 50%;
+  }
+
+  .contendor{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .subtitle{
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .aboutText{
+    padding: 0 100px 0 100px;
+  }
+
+  @keyframes rotate360 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @media screen and (max-width: 756px) {
+  .aboutcontent {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .aboutcontainer {
+    padding: 40px;
+    background-image: url('../../Images/bkg2.png');
+    background-size: contain;
+    height: calc(100vh - 400px);
+    font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+  }
+}
+@media screen and (min-width: 756px) and (max-width: 1124px) {
+  .aboutcontent {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .aboutcontainer {
+    padding: 40px;
+    background-image: url('../../Images/bkg2.png');
+    background-size: contain;
+    height: calc(100vh - 400px);
+    font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+  }
+}
+  

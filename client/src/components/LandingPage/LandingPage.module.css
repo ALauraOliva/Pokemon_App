@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../Images/pokemonLogoLanding.jpeg');
+    background-size: cover;
+    background-position: center center; /* Center the background image */
+}
+
+.img1{
+  width: 45vw;
+}
+
+.img2{
+    width: 25vw;
+}
+
+.img2:hover{
+    cursor: pointer;
+    animation: enlargeAnimation 1.5s linear infinite; /* Apply the animation to img2 */
+}
+
+@keyframes enlargeAnimation {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }

@@ -1,0 +1,576 @@
+@import url('https://fonts.cdnfonts.com/css/upheaval-pro');
+
+.statsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.allInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.containerDetail {
+    height: calc(100vh - 120px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.containerDetail2 *{
+    font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+}
+  
+
+.containerDetail2{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 80px 40px 80px 80px;
+}
+
+.containerDetail2 div{
+    z-index: 2;
+}
+
+.contenedorImg{
+    width: 50vw;
+}
+
+.contenedorImg img{
+    min-height: 500px;
+    max-height: 590px;
+    max-width: 800px;
+    animation: bounce2 .8s alternate infinite ease-in;
+}
+
+
+@keyframes bounce2 {
+    0%{
+        transform: translateY(-1%)
+    }
+    100%{
+        transform: translateY(0%)
+    }
+}
+
+.infoContainer{
+    display: flex;
+   
+    flex-direction: column;
+    gap: 40px
+}
+
+.contenedorTipos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contenedorTipos img{
+    width: 35px;
+}
+
+.contenedorTipo {
+    background-color: bisque;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.infoContainer2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+.infoContainer3{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.infoContainer3HW{
+    background-color: bisque;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 5px;
+    align-items: center;
+    width: 100px;
+}
+
+.infoContainer3HW div{
+    font-size: 16px;
+}
+
+.nombre{
+    font-family: 'Upheaval Pro', sans-serif;
+    font-size: 90px;
+}
+
+.imagen{
+    max-width: 800px;
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px;
+    gap: 40px;
+}
+
+.animacionCarga {
+    /* Establecemos el color inicial de la barra */
+    background-color: #ff0000;
+  } 
+.barraContainer {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start;
+    width: 200px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    overflow: hidden; /* Para que las barras no se vean rebasar */
+}
+
+.NameStat {
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    width: 100px;
+}
+
+/* Estilos para cada barra de progreso */
+.barra {
+    height: 100%;
+    border-radius: 10px;
+    width: 0;
+    background-color: transparent;
+    /* Agregamos una transición para el efecto gradual */
+    transition: width 1s ease-in-out;
+}
+
+  
+.grass{ 
+    overflow: hidden;
+    position: relative;
+    background-color: #7AC74C;
+}
+
+.grass::before{
+    background-image: url('../../Images/grass.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: -70px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.normal{ 
+    overflow: hidden;
+    position: relative;
+    background-color: #A8A77A;
+}
+
+.normal::before{
+    background-image: url('../../Images/normal.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: 10px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.fire{
+    overflow: hidden;
+    position: relative;
+    background-color: #EE8130
+} 
+
+.fire::before{
+    background-image: url('../../Images/fire.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 10px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 800px;
+    z-index: 0; 
+}
+
+.water{
+    overflow: hidden;
+    position: relative;
+    background-color: #6390F0
+} 
+
+.water::before{
+    background-image: url('../../Images/water.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: 30px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+   height: 700px;
+    z-index: 0; 
+}
+
+.electric{
+    overflow: hidden;
+    position: relative;
+    background-color: #F7D02C
+} 
+
+.electric::before{  
+    background-image: url('../../Images/electric.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: 10px;
+    opacity: 0.3;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 800px;
+    z-index: 0; 
+}
+
+.ice{
+    overflow: hidden;
+    position: relative;
+    background-color: #96D9D6
+}
+
+.ice::before{
+    background-image: url('../../Images/ice.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: -70px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.fighting{
+    overflow: hidden;
+    position: relative;
+    background-color: #C22E28
+} 
+
+.fighting::before{
+    background-image: url('../../Images/fighting.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: -70px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.poison{
+    overflow: hidden;
+    position: relative;
+    background-color: #A33EA1
+} 
+
+.poison::before{
+    background-image: url('../../Images/poison.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 40px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+   
+    z-index: 0; 
+}
+
+.ground{
+    overflow: hidden;
+    position: relative;
+    background-color: #E2BF65
+} 
+
+.ground::before{
+    background-image: url('../../Images/ground.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: -70px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.flying{
+    overflow: hidden;
+    position: relative;
+    background-color: #A98FF3
+} 
+
+.flying::before{
+    background-image: url('../../Images/flying.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: -70px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.psychic{
+    overflow: hidden;
+    position: relative;
+    background-color: #F95587
+} 
+
+.psychic::before{
+    background-image: url('../../Images/psychic.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: -70px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.bug{
+    overflow: hidden;
+    position: relative;
+    background-color: #A6B91A
+}
+
+.bug::before{
+    background-image: url('../../Images/bug.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: -70px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.rock{
+    overflow: hidden;
+    position: relative;
+    background-color: #B6A136;
+} 
+
+.rock::before{
+    background-image: url('../../Images/rock.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: -70px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.ghost{
+    overflow: hidden;
+    position: relative;
+    background-color: #735797;
+}
+
+.ghost::before{
+    background-image: url('../../Images/ghost.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: -70px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.dragon{
+   overflow: hidden;
+    position: relative;
+    background-color: #6F35FC
+}
+
+.dragon::before{
+    background-image: url('../../Images/dragon.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: -70px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.dark{
+    overflow: hidden;
+    position: relative;
+    background-color: #705746
+}
+
+.dark::before{
+    background-image: url('../../Images/dark.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: -70px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.steel{
+    overflow: hidden;
+    position: relative;
+    background-color: #B7B7CE
+}
+
+.steel::before{
+    background-image: url('../../Images/steel.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: -70px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 800px;
+    z-index: 0; 
+}
+
+.fairy{
+    overflow: hidden;
+    position: relative;
+    background-color: #D685AD
+} 
+
+.fairy::before{
+    background-image: url('../../Images/fairy.svg');
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -39px;
+    left: 40px;
+    opacity: 0.12;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 780px;
+    z-index: 0; 
+}
+
+@media screen and (max-width: 756px) {
+    .containerDetail2{
+        height: none;
+        justify-content: space-evenly;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding: 100px 0 100px 0;
+    }
+}
+
+@media screen and (min-width: 756px) and (max-width: 1124px) {
+    .containerDetail2{
+        height: none;
+        justify-content: space-evenly;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding: 100px 0 100px 0;
+    }
+}

@@ -1,0 +1,126 @@
+//?ACTIONS aqui se puede llamar a APIS en el REDUCER solo es para cambiar el store STATE
+import { GET_POKEMONS_HOME, GET_POKEMONS_DB, GET_ALL_POKEMONS, GET_POKEMON_DETAIL, FILTER_POKEMONS, FILTER_BY_TYPE, ORDER_POKES, ORDER_ATTACK, GET_TYPES, SET_ORIGIN_POKEMONS, RESET_FILTER, SET_PAGINA, SET_FILTERS, CREATE_POKEMON } from "./action-types";
+import axios from 'axios';
+
+export const getPokemonsHome = () => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.get('http://localhost:3001/pokemons');
+            dispatch({type : GET_POKEMONS_HOME, payload: data})
+        } catch (error) {
+            alert("error: " + error.response.data.error)
+        }
+    }
+}
+
+export const getPokemonsDB = () => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.get('http://localhost:3001/pokemonsdb');
+            dispatch({type : GET_POKEMONS_DB, payload: data})
+        } catch (error) {
+            alert("error: " + error.response.data.error)
+        }
+    }
+}
+
+export const getAllPokemons = () => {
+    return (dispatch) => {
+        dispatch({type: GET_ALL_POKEMONS, payload: {}})
+    }
+}
+
+export const getPokemonDetail = (id) => {
+    return (dispatch) => {
+        dispatch({type: GET_POKEMON_DETAIL, payload: id})
+    }
+}
+
+// export const filterPokemons = (searchedValue) => {
+//     return (dispatch) => {
+//         dispatch({type: FILTER_POKEMONS, payload: searchedValue})
+//     }
+// }
+
+export const filterPokemons = (searchedValue) => async (dispatch, getState) => {
+    const originPokemon = getState().originPokemon;
+
+    let tmpArrayPokemones;
+    if (originPokemon === 'APIPokemons'){ tmpArrayPokemones = getState().allPokemonsHome}
+    if (originPokemon === 'allPokemons'){ tmpArrayPokemones = getState().allPokemons    } 
+
+    tmpArrayPokemones = tmpArrayPokemones.filter(pokemon => pokemon.nombre === searchedValue.toLowerCase())
+  
+    if (tmpArrayPokemones.length > 0) {
+      // Si se encuentra en el estado, actualiza el filtro con el pokemon encontrado
+      dispatch({ type: FILTER_POKEMONS, payload: tmpArrayPokemones });
+    } else {
+      // Si no se encuentra en el estado, realiza una llamada a la API para buscarlo
+      try {
+        const params = {
+            name: searchedValue,
+          };
+        const response = await axios.get(
+          `http://localhost:3001/pokemons/name`, {params});
+        dispatch({ type: FILTER_POKEMONS, payload: [response.data] });
+      } catch (error) {
+        // Manejo de errores si la API falla
+        alert("Error: No se pudo obtener el pokemon de la API.");
+      }
+    }
+  };
+
+export const filterByType = (type) => {
+    return (dispatch) => {
+        dispatch({type: FILTER_BY_TYPE, payload: type})
+    }
+}
+
+export const getTypes = () => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.get('http://localhost:3001/types');
+            dispatch({type : GET_TYPES, payload: data})
+        } catch (error) {
+            alert("error: " + error.response.data.error)
+        }
+    }
+}
+
+export const setOriginPokemons = (origin) => {
+    return (dispatch) => {
+        dispatch({type: SET_ORIGIN_POKEMONS, payload: origin})
+    }
+}
+
+export const orderPokes = (order) => {
+    return {type: ORDER_POKES, payload:order}
+}
+
+export const orderAttack = (attack) => {
+    return {type: ORDER_ATTACK, payload:attack}
+}
+
+export const resetFilter = (attack) => {
+    return {type: RESET_FILTER, payload:{}}
+}
+
+export const setPagina = (page) => {
+    return {type: SET_PAGINA, payload:page}
+}
+
+export const setFilters = (filter) => {
+    return {type: SET_FILTERS, payload:filter}
+}
+
+export const createPokemon = (pokemonData) => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.post('http://localhost:3001/pokemons', pokemonData);
+            dispatch({type : CREATE_POKEMON, payload: data})
+            alert("Pokemon Created")
+        } catch (error) {
+            alert("error: " + error.response.data.error)
+        }
+    }
+}

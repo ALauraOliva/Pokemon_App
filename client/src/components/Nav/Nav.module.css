@@ -1,0 +1,78 @@
+.contenedorNav{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    max-width:100%;  /* added */
+    justify-content: space-around;
+    align-items: center;
+    background-color: #202020 ;
+    box-shadow: 0px 0px 20px 0px #333;
+    height: 120px;
+}
+
+.contentLogotipo{
+    width: 350px
+}
+
+.contentLogotipo img{
+    left: 30px;
+    top: -28px;
+    position: absolute;
+    max-width: 400px;
+    z-index: 4;
+}
+
+.opciones{
+    font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+    color: white;
+    text-decoration: none!important;
+    font-size: 30px;
+}
+
+.contenedorOpc{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    margin: 0 10px 0 10px;
+}
+
+.contenedorOpc a:hover{
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #333 inset;
+    padding: 10px;
+    background-color: #202020;
+    color: #FFCB05;
+    border-color: #2E6CB4;
+    border-width: 5px;
+    border-style: solid;
+}
+
+@media screen and (max-width: 1124px) {
+    .contenedorNav{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #202020 ;
+        box-shadow: 0px 0px 20px 0px #333;
+        height: 400px;
+        position: static;
+    }
+    
+    .contentLogotipo{
+        width: fit-content;
+        height: min-content;
+    }
+    
+    .contentLogotipo img{
+        left: 30px;
+        top: -28px;
+        position: static;
+    }
+
+    .contenedorOpc{
+        gap: 20px;
+    }
+}
