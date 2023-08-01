@@ -45,12 +45,13 @@ export const getPokemonDetail = (id) => {
 export const filterPokemons = (searchedValue) => async (dispatch, getState) => {
     const originPokemon = getState().originPokemon;
 
-    let tmpArrayPokemones;
+    let tmpArrayPokemones = [];
+
     if (originPokemon === 'APIPokemons'){ tmpArrayPokemones = getState().allPokemonsHome}
     if (originPokemon === 'allPokemons'){ tmpArrayPokemones = getState().allPokemons    } 
-
+    if (originPokemon === 'dbPokemons' ){ tmpArrayPokemones = getState().allPokemonsDB  }
+    
     tmpArrayPokemones = tmpArrayPokemones.filter(pokemon => pokemon.nombre === searchedValue.toLowerCase())
-  
     if (tmpArrayPokemones.length > 0) {
       // Si se encuentra en el estado, actualiza el filtro con el pokemon encontrado
       dispatch({ type: FILTER_POKEMONS, payload: tmpArrayPokemones });

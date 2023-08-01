@@ -3,29 +3,22 @@ import { NavLink } from 'react-router-dom';
 import styledNav from './Nav.module.css'
 import logotipo from '../../Images/Logo-Pokemon.png'
 import styleSearchBar from '../../components/SearchBar/SearchBar.module.css'
-import { useState } from "react";
+import {  useEffect } from "react";
 import { setOriginPokemons } from '../../redux/actions'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const Nav = () => {
     const dispatch = useDispatch();
     const location = useLocation();
+    const originPokemon = useSelector((state) => state.originPokemon);
 
-    const [originPoke, setoriginPoke] = useState({ //Para saber que marca el usuario
-        APIPokemons : true,
-        dbPokemons  : false,
-        allPokemons : false
-    }) 
+    useEffect(() => {
+        // Al montar el componente, actualizar el estado en el store con el valor del origen
+        dispatch(setOriginPokemons(originPokemon));
+    }, [originPokemon, dispatch]);
 
     const originCheck = (event) => {
-        setoriginPoke({
-            APIPokemons : false,
-            dbPokemons  : false,
-            allPokemons : false,
-            [event.target.value] : event.target.checked
-        })
-
-        dispatch(setOriginPokemons(event.target.value))
+        dispatch(setOriginPokemons(event.target.value));
     }
 
     return (
@@ -45,15 +38,15 @@ export const Nav = () => {
                     <div className={styleSearchBar.originContainer}>
                         <div className={styleSearchBar.originName}>Origin : </div>
                         <div> 
-                            <input type="radio" id={originPoke} name="originPoke" value={'APIPokemons'} onChange={originCheck}/>
+                            <input type="radio"  name="originPoke" value={'APIPokemons'} checked={originPokemon === 'APIPokemons'} onChange={originCheck}/>
                             <label >API Pokemons</label>
                         </div>
                         <div>
-                            <input type="radio" id={originPoke} name="originPoke" value={'dbPokemons'} onChange={originCheck}/>
+                            <input type="radio"  name="originPoke" value={'dbPokemons'} checked={originPokemon === 'dbPokemons'} onChange={originCheck}/>
                             <label >DB Pokemons</label>
                         </div>
                         <div>
-                            <input type="radio" id={originPoke} name="originPoke" value={'allPokemons'} onChange={originCheck}/>
+                            <input type="radio" name="originPoke" value={'allPokemons'} checked={originPokemon === 'allPokemons'} onChange={originCheck}/>
                             <label >All Pokemons</label>
                         </div>
                     </div>

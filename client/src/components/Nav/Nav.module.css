@@ -1,3 +1,10 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; */
+  }
+  
 .contenedorNav{
     display: flex;
     flex-direction: row;
@@ -47,6 +54,7 @@
     border-width: 5px;
     border-style: solid;
 }
+
 
 @media screen and (max-width: 1124px) {
     .contenedorNav{
