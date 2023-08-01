@@ -3,8 +3,8 @@ const { Pokemon, Type } = require('../db');
 const createPokemon = async (req, _res) => {
     try {
         const {nombre, imagen, vida, ataque, defensa, velocidad, altura, peso, types} = req.body;
-        console.log('lleguie hasta aqui');
-        console.log(types);
+        // console.log('lleguie hasta aqui');
+        // console.log(types);
 
         if(!nombre|| !imagen|| !vida|| !ataque|| !defensa|| !velocidad|| !altura|| !peso|| !types) throw new Error("Falta llenar datos");
         const pokemonCreated = await Pokemon.create({
@@ -31,7 +31,7 @@ const createPokemon = async (req, _res) => {
 
 const getPokemonWithTypes = async (pokemonId) => {
     try {
-        // Aquí realizas la consulta para obtener el pokemon
+        // Consulta para obtener el pokemon
         const pokemon = await Pokemon.findOne({
           where: { id: pokemonId },
         });
