@@ -1,4 +1,4 @@
-import { GET_POKEMONS_HOME, GET_POKEMONS_DB, GET_POKEMON_DETAIL, FILTER_POKEMONS, FILTER_BY_TYPE, ORDER_POKES, GET_TYPES, SET_ORIGIN_POKEMONS, ORDER_ATTACK, GET_ALL_POKEMONS, RESET_FILTER, SET_PAGINA, CREATE_POKEMON } from "./action-types";
+import { GET_POKEMONS_HOME, GET_POKEMONS_DB, GET_POKEMON_DETAIL, FILTER_POKEMONS, FILTER_BY_TYPE, ORDER_POKES, GET_TYPES, SET_ORIGIN_POKEMONS, ORDER_ATTACK, GET_ALL_POKEMONS, RESET_FILTER, SET_PAGINA, CREATE_POKEMON, FILTER_ADD_NEW_ONE } from "./action-types";
 
 const initialState = {
     allPokemonsHome  : [],
@@ -53,9 +53,20 @@ const reducer = (state = initialState, {type, payload}) => { //? {type, payload}
             return{
                 ...state,
                 filteredPokemons : payload,
-                allPokemonsHome  : (state.originPokemon === 'APIPokemons' || state.originPokemon === 'allPokemons') && tmpArrayPokemones.concat(payload),
-                allPokemons      : (state.originPokemon === 'APIPokemons' || state.originPokemon === 'allPokemons') && tmpArrayPokemones.concat(payload, state.allPokemonsDB),
                 maxPages         : maxPagesFilterPokemones,
+                pagina           : 1,
+            }
+        
+        case FILTER_ADD_NEW_ONE:
+            let maxPagesFilterPokemonesAPI = Math.ceil(payload.length / 12)
+            if(payload.length===0) {maxPagesFilterPokemonesAPI = 1}
+
+            return{
+                ...state,
+                filteredPokemons : payload,
+                allPokemonsHome  : (state.originPokemon === 'allPokemons' || state.originPokemon === 'APIPokemons') ? tmpArrayPokemones.concat(payload) : [...state.allPokemonsHome],
+                allPokemons      : (state.originPokemon === 'allPokemons' || state.originPokemon === 'APIPokemons') ? tmpArrayPokemones.concat(payload) : [...state.allPokemons],
+                maxPages         : maxPagesFilterPokemonesAPI,
                 pagina           : 1,
             }
 
@@ -178,9 +189,9 @@ const reducer = (state = initialState, {type, payload}) => { //? {type, payload}
                 newFilterPokemonsByOrigin = state.allPokemonsDB;
             if(payload === 'allPokemons')
                 newFilterPokemonsByOrigin = state.allPokemons;
-
-            let maxPagesOrigin = Math.ceil(newFilterPokemonsByOrigin?.length / 12)
-            if(newFilterPokemonsByOrigin.length===0) {maxPagesOrigin = 1}
+            
+            let maxPagesOrigin = (newFilterPokemonsByOrigin.length > 0) ? Math.ceil(newFilterPokemonsByOrigin.length / 12) : 5;
+            // if(newFilterPokemonsByOrigin.length===0) {maxPagesOrigin = 1}
 
             return{
                 ...state,

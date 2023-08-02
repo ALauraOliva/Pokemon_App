@@ -17,7 +17,7 @@ export const Cards = () => {
     const filteredPokemons = useSelector((state) => state.filteredPokemons)
     const maxPages         = useSelector((state) => state.maxPages)
     const pagina           = useSelector((state) => state.pagina)
-    
+
     useEffect(() =>{
         dispatch(getPokemonsHome())
         dispatch(getPokemonsDB())
@@ -25,7 +25,6 @@ export const Cards = () => {
     }, [dispatch])
     
     useEffect(() => {
-        console.log(filteredPokemons);
         setFiltroClick(false);
         if(filteredPokemons.length > 0 && loading === true){
             dispatch(getAllPokemons());
@@ -56,11 +55,11 @@ export const Cards = () => {
                         filteredPokemons.length >    0
                         
                         ?
-
+                        
                         filteredPokemons.slice(
                             (pagina - 1) * porPagina,  //1 12
                             (pagina - 1) * porPagina + porPagina //12 24
-                        ).map(pokemon => { 
+                        ).map((pokemon) => {
                             return(
                                 <Card
                                     key      = {pokemon.idApi ? pokemon.idApi : pokemon.id}

@@ -27,7 +27,6 @@ const getPokemonByName = async (req,_res) => {
                 peso: data.weight,
                 types: data.types.map(type => type.type.name)
             };
-            // console.log(data.name)
         }
         
         return pokemonFounByName;

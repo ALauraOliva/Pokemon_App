@@ -17,7 +17,6 @@ function App() {
 
   const handleCreatePokemon = (newPokemonData) => {
     dispatch(createPokemon(newPokemonData))
-    console.log('Nuevo pokemon:', newPokemonData);
   };
 
   return (

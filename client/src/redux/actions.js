@@ -1,5 +1,5 @@
 //?ACTIONS aqui se puede llamar a APIS en el REDUCER solo es para cambiar el store STATE
-import { GET_POKEMONS_HOME, GET_POKEMONS_DB, GET_ALL_POKEMONS, GET_POKEMON_DETAIL, FILTER_POKEMONS, FILTER_BY_TYPE, ORDER_POKES, ORDER_ATTACK, GET_TYPES, SET_ORIGIN_POKEMONS, RESET_FILTER, SET_PAGINA, SET_FILTERS, CREATE_POKEMON } from "./action-types";
+import { GET_POKEMONS_HOME, GET_POKEMONS_DB, GET_ALL_POKEMONS, GET_POKEMON_DETAIL, FILTER_POKEMONS, FILTER_BY_TYPE, ORDER_POKES, ORDER_ATTACK, GET_TYPES, SET_ORIGIN_POKEMONS, RESET_FILTER, SET_PAGINA, SET_FILTERS, CREATE_POKEMON, FILTER_ADD_NEW_ONE } from "./action-types";
 import axios from 'axios';
 
 export const getPokemonsHome = () => {
@@ -38,30 +38,35 @@ export const getPokemonDetail = (id) => {
 
 export const filterPokemons = (searchedValue) => async (dispatch, getState) => {
     const originPokemon = getState().originPokemon;
-
     let tmpArrayPokemones = [];
 
     if (originPokemon === 'APIPokemons'){ tmpArrayPokemones = getState().allPokemonsHome}
     if (originPokemon === 'allPokemons'){ tmpArrayPokemones = getState().allPokemons    } 
     if (originPokemon === 'dbPokemons' ){ tmpArrayPokemones = getState().allPokemonsDB  }
-    
-    tmpArrayPokemones = tmpArrayPokemones.filter(pokemon => pokemon.nombre === searchedValue.toLowerCase())
+
+    tmpArrayPokemones = tmpArrayPokemones.filter(pokemon => pokemon.nombre.toLowerCase() === String(searchedValue.toLowerCase()))
+
     if (tmpArrayPokemones.length > 0) {
-      // Si se encuentra en el estado, actualiza el filtro con el pokemon encontrado
       dispatch({ type: FILTER_POKEMONS, payload: tmpArrayPokemones });
+
     } else {
-      // Si no se encuentra en el estado, realiza una llamada a la API para buscarlo
-      try {
-        const params = {
-            name: searchedValue,
-          };
-        const response = await axios.get(
-          `http://localhost:3001/pokemons/name`, {params});
-        dispatch({ type: FILTER_POKEMONS, payload: [response.data] });
-      } catch (error) {
-        // Manejo de errores si la API falla
-        alert("Error: No se pudo obtener el pokemon de la API.");
-      }
+        if (originPokemon !== 'dbPokemons'){
+            try {
+              const params = {
+                  name: searchedValue,
+                };
+              const response = await axios.get(
+                `http://localhost:3001/pokemons/name`, {params});
+              dispatch({ type: FILTER_ADD_NEW_ONE, payload: [response.data] });
+            } catch (error) {
+              // Manejo de errores si la API falla
+              alert("Error: No se pudo obtener el pokemon de la API");
+            }
+        }
+
+        if (originPokemon === 'dbPokemons'){
+            alert("Error: No existe ese pokemon en la DB")
+        }
     }
   };
 
@@ -110,12 +115,16 @@ export const setFilters = (filter) => {
 
 export const createPokemon = (pokemonData) => {
     return async (dispatch) => {
-        try {
-            const {data} = await axios.post('http://localhost:3001/pokemons', pokemonData);
-            dispatch({type : CREATE_POKEMON, payload: data})
-            alert("Pokemon Created")
-        } catch (error) {
-            alert("error: " + error.response.data.error)
+        if (pokemonData.nombre === '') {
+            alert('Debes completar los datos')
+        } else {
+            try {
+                const { data } = await axios.post('http://localhost:3001/pokemons', pokemonData);
+                dispatch({ type: CREATE_POKEMON, payload: data });
+                alert("Pokemon Created");
+            } catch (error) {
+                alert("error: " + error.response.data.error);
+            }
         }
     }
 }

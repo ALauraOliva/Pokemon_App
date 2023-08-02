@@ -13,4 +13,5 @@ export const GET_POKEMON_DETAIL   = 'GET_POKEMON_DETAIL';
 export const SET_PAGINA           = 'SET_PAGINA'
 export const SET_FILTERS          = 'SET_FILTERS'
 export const CREATE_POKEMON       = 'CREATE_POKEMON'
+export const FILTER_ADD_NEW_ONE   = 'FILTER_ADD_NEW_ONE'
 

@@ -12,10 +12,10 @@ export const Nav = () => {
     const location = useLocation();
     const originPokemon = useSelector((state) => state.originPokemon);
 
-    useEffect(() => {
-        // Al montar el componente, actualizar el estado en el store con el valor del origen
-        dispatch(setOriginPokemons(originPokemon));
-    }, [originPokemon, dispatch]);
+    // useEffect(() => {
+    //     // Al montar el componente, actualizar el estado en el store con el valor del origen
+    //     dispatch(setOriginPokemons(originPokemon));
+    // }, [originPokemon, dispatch]);
 
     const originCheck = (event) => {
         dispatch(setOriginPokemons(event.target.value));

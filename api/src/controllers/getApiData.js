@@ -27,7 +27,6 @@ const getApiData = async () => {
             })}
         )
         
-        //console.log(pokemons)
         let allPokemons = [];
         pokemons.map(poke => {allPokemons = allPokemons.concat(poke)})
         

@@ -29,6 +29,4 @@ conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
     console.log('2. Server listening at 3001'); // eslint-disable-line no-console
   });
-  getPokemonTypes();
-  //saveApiData(); //? nos traemos los 20 primeros pokemons y los guardamos en la DB <<
 });

@@ -7,7 +7,6 @@ const saveApiData = async () => {
     try {
         
         const allPokemons = await getApiData(); //?devuelve array de objetos <<
-        //console.log(allPokemons)
         const createPokemons = await Pokemon.bulkCreate(allPokemons) //?le paso un array de objetos y agrega todos de UNA en la db <<
         
         return allPokemons;
