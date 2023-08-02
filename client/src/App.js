@@ -1,4 +1,5 @@
 import './App.css';
+import {Helmet} from "react-helmet";
 import { Cards } from './components/Cards/Cards';
 import { Nav } from './components/Nav/Nav';
 import { About } from './components/About/About'
@@ -21,6 +22,12 @@ function App() {
 
   return (
     <div className="App">
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Pokedex App</title>
+          <link rel="canonical" href="http://mysite.com/example" />
+          <meta name="description" content="Helmet application" />
+      </Helmet>
       {location.pathname !== '/' && <Nav/>}
       <Routes>
             <Route path={'/'} element={<LandingPage/>} />
