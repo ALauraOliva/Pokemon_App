@@ -25,21 +25,18 @@ const reducer = (state = initialState, {type, payload}) => { //? {type, payload}
                 ...state,
                 filteredPokemons: state.filteredPokemons.length > 0 ? state.filteredPokemons : payload,
                 allPokemonsHome : state.allPokemonsHome.length > 0  ? state.allPokemonsHome  : payload,
-                // pagina          : 1
             }
             
         case GET_POKEMONS_DB:
             return{
                 ...state,
                 allPokemonsDB : state.allPokemonsDB.length > 0  ? state.allPokemonsDB  : payload,
-                // pagina        : 1
             }
         
         case GET_ALL_POKEMONS:
             return{
                 ...state,
                 allPokemons : state.allPokemonsHome.concat(state.allPokemonsDB) ,
-                // pagina      : 1
             }
         
         case GET_POKEMON_DETAIL:

@@ -5,7 +5,6 @@ export const LandingPage = () => {
     const navigate = useNavigate();
 
     const handleImg2Click = () => {
-      // Redirect to the "/home" page when img2 is clicked
       navigate('/Home');
     };
 

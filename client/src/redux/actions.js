@@ -36,12 +36,6 @@ export const getPokemonDetail = (id) => {
     }
 }
 
-// export const filterPokemons = (searchedValue) => {
-//     return (dispatch) => {
-//         dispatch({type: FILTER_POKEMONS, payload: searchedValue})
-//     }
-// }
-
 export const filterPokemons = (searchedValue) => async (dispatch, getState) => {
     const originPokemon = getState().originPokemon;
 
