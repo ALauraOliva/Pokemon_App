@@ -28,6 +28,7 @@
 }
 
 .searchContainer{
+    box-sizing: border-box;
     margin-top: 70px;
     display: flex;
     flex-direction: row;
@@ -87,6 +88,7 @@ option{
 
 @media screen and (min-width: 280px) and (max-width: 756px)  {
     .searchContainer{
+        box-sizing: border-box;
         margin-top: 20px;
         display: flex;
         gap :20px;
@@ -131,6 +133,7 @@ option{
   
 @media screen and (max-width: 280px) {
     .searchContainer{
+        box-sizing: border-box;
         margin-top: 20px;
         display: flex;
         flex-direction: row;
@@ -175,6 +178,7 @@ option{
 
 @media screen and (min-width: 756px) and (max-width: 1124px) {
     .searchContainer{
+        box-sizing: border-box;
         margin-top: 20px;
         display: flex;
         flex-direction: row;

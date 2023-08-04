@@ -1,23 +1,23 @@
  @import url('https://fonts.cdnfonts.com/css/petyka-retro-computer');
 
 .contenedorGridCards{
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 4fr 4fr 4fr;
     place-items: center;
     row-gap: 20px;
     padding-top: 40px;
-    
 }
 
 .NodataFound{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     width: 100vw;
-    /* height: calc(100vh - 174.8px); */
-    height: 512.4px;
+    height: calc(var(--windowHeight) - 214.8px);
 }
 
 .NodataFound p {
@@ -26,7 +26,7 @@
 }
 
 .NodataFoundImg{
-    width: 650px;
+    width: 70vw;
 }
 
 @media screen and (max-width: 756px) {
@@ -48,7 +48,7 @@
     }
     
     .NodataFoundImg{
-        width: 400px;
+        width: 70vw;
     }
 }
 
@@ -70,6 +70,6 @@
     }
     
     .NodataFoundImg{
-        width: 600px;
+        width: 70vw;
     }
 }
