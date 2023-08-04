@@ -1,6 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/upheaval-pro');
 
 .statsContainer {
+    box-sizing: border-box;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -18,7 +19,7 @@
 }
 
 .containerDetail {
-    height: calc(100vh - 120px);
+    height: calc(var(--windowHeight) - 120px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,12 +34,9 @@
   
 
 .containerDetail2{
-    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: row;
-    padding: 80px 40px 80px 80px;
+    align-items: center;
 }
 
 .containerDetail2 div{
@@ -46,13 +44,14 @@
 }
 
 .contenedorImg{
+    box-sizing: border-box;
+    padding: 60px 0 0 0;
     width: 50vw;
 }
 
 .contenedorImg img{
-    min-height: 500px;
-    max-height: 590px;
-    max-width: 800px;
+    min-height: calc(var(--windowHeight) * 0.7);
+    max-width: 40vw;
     animation: bounce2 .8s alternate infinite ease-in;
 }
 
@@ -86,6 +85,7 @@
 }
 
 .contenedorTipo {
+    box-sizing: border-box;
     background-color: bisque;
     border-radius: 20px;
     padding: 5px 10px 5px 10px;
@@ -111,6 +111,7 @@
 }
 
 .infoContainer3HW{
+    box-sizing: border-box;
     background-color: bisque;
     border-radius: 20px;
     display: flex;
@@ -135,6 +136,7 @@
 }
 
 .stats {
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -154,7 +156,6 @@
     height: 20px;
     border-radius: 10px;
     background-color: #f0f0f0;
-    overflow: hidden; /* Para que las barras no se vean rebasar */
 }
 
 .NameStat {
@@ -553,24 +554,384 @@
     z-index: 0; 
 }
 
-@media screen and (max-width: 756px) {
+@media screen and (max-width: 280px) {
+    .containerDetail {
+        box-sizing: border-box;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+    
     .containerDetail2{
-        height: none;
         justify-content: space-evenly;
         align-items: center;
         display: flex;
-        flex-direction: column;
-        padding: 100px 0 100px 0;
+        flex-direction: column; 
     }
+
+    .contenedorImg{
+        box-sizing: border-box;
+        padding: 40px 0 0 20px;
+        width: 90vw;
+        height: max-content;
+        display: flex;
+        justify-content: center;
+    }
+
+    .contenedorImg img{
+        min-height: calc(100vh * 0.4) ;
+        max-width: 80vw;
+        animation: bounce2 .8s alternate infinite ease-in;
+    }
+
+    .nombre{
+        font-family: 'Upheaval Pro', sans-serif;
+        font-size: 40px;
+    }
+
+    .allInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100vw;
+    }
+
+    .statsContainer {
+        box-sizing: border-box;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .barraContainer {
+        display: flex;
+        align-items: center; 
+        justify-content: flex-start;
+        width: 150px;
+        height: 20px;
+        border-radius: 10px;
+        background-color: #f0f0f0;
+    }
+        
+    .grass{ 
+        overflow: auto;
+        position: relative;
+        background-color: #7AC74C;
+    }
+
+    .infoContainer2{
+        display: flex;
+        flex-direction: column;
+
+        gap: 30px;
+    }
+
+    .stats {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 2px;
+        gap: 10px;
+    }
+
+    .NameStat {
+        display: flex;
+        align-content: center;
+        justify-content: flex-start;
+        width: 80px;
+    }
+
+    .normal{ 
+        overflow: auto;
+        position: relative;
+        background-color: #A8A77A;
+    }
+
+    .fire{
+        overflow: auto;
+        position: relative;
+        background-color: #EE8130
+    } 
+
+    .water{
+        overflow: auto;
+        position: relative;
+        background-color: #6390F0
+    } 
+
+    .electric{
+        overflow: auto;
+        position: relative;
+        background-color: #F7D02C
+    } 
+
+    .ice{
+        overflow: auto;
+        position: relative;
+        background-color: #96D9D6
+    }
+
+    .fighting{
+        overflow: auto;
+        position: relative;
+        background-color: #C22E28
+    } 
+
+    .poison{
+        overflow: auto;
+        position: relative;
+        background-color: #A33EA1
+    } 
+
+    .ground{
+        overflow: auto;
+        position: relative;
+        background-color: #E2BF65
+    } 
+
+    .flying{
+        overflow: auto;
+        position: relative;
+        background-color: #A98FF3
+    } 
+
+    .psychic{
+        overflow: auto;
+        position: relative;
+        background-color: #F95587
+    }
+
+    .bug{
+        overflow: hidden;
+        position: relative;
+        background-color: #A6B91A
+    }
+
+    .rock{
+        overflow: hidden;
+        position: relative;
+        background-color: #B6A136;
+    } 
+
+    .ghost{
+        overflow: auto;
+        position: relative;
+        background-color: #735797;
+    }
+
+    .dragon{
+    overflow: auto;
+        position: relative;
+        background-color: #6F35FC
+    }
+
+    .dark{
+        overflow: auto;
+        position: relative;
+        background-color: #705746
+    }
+
+    .steel{
+        overflow: auto;
+        position: relative;
+        background-color: #B7B7CE
+    }
+
+    .fairy{
+        overflow: auto;
+        position: relative;
+        background-color: #D685AD
+    } 
+
 }
 
-@media screen and (min-width: 756px) and (max-width: 1124px) {
+
+@media screen and (min-width: 281px) and (max-width: 1124px) {
+    .containerDetail {
+        box-sizing: border-box;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+    
     .containerDetail2{
-        height: none;
         justify-content: space-evenly;
         align-items: center;
         display: flex;
-        flex-direction: column;
-        padding: 100px 0 100px 0;
+        flex-direction: column; 
     }
+
+    .contenedorImg{
+        box-sizing: border-box;
+        padding: 40px 0 0 20px;
+        width: 100vw;
+        height: max-content;
+    }
+
+    .contenedorImg img{
+        min-height: calc(100vh * 0.4) ;
+        max-width: fit-content;
+        animation: bounce2 .8s alternate infinite ease-in;
+    }
+
+    .nombre{
+        font-family: 'Upheaval Pro', sans-serif;
+        font-size: 60px;
+    }
+
+    .allInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100vw;
+    }
+
+    .statsContainer {
+        box-sizing: border-box;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 50px;
+    }
+        
+    .grass{ 
+        overflow: auto;
+        position: relative;
+        background-color: #7AC74C;
+    }
+
+    .infoContainer2{
+        display: flex;
+        flex-direction: column;
+
+        gap: 30px;
+    }
+
+    .stats {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 2px;
+        gap: 5px;
+    }
+
+    .normal{ 
+        overflow: auto;
+        position: relative;
+        background-color: #A8A77A;
+    }
+
+    .fire{
+        overflow: auto;
+        position: relative;
+        background-color: #EE8130
+    } 
+
+    .water{
+        overflow: auto;
+        position: relative;
+        background-color: #6390F0
+    } 
+
+    .electric{
+        overflow: auto;
+        position: relative;
+        background-color: #F7D02C
+    } 
+
+    .ice{
+        overflow: auto;
+        position: relative;
+        background-color: #96D9D6
+    }
+
+    .fighting{
+        overflow: auto;
+        position: relative;
+        background-color: #C22E28
+    } 
+
+    .poison{
+        overflow: auto;
+        position: relative;
+        background-color: #A33EA1
+    } 
+
+    .ground{
+        overflow: auto;
+        position: relative;
+        background-color: #E2BF65
+    } 
+
+    .flying{
+        overflow: auto;
+        position: relative;
+        background-color: #A98FF3
+    } 
+
+    .psychic{
+        overflow: auto;
+        position: relative;
+        background-color: #F95587
+    }
+
+    .bug{
+        overflow: hidden;
+        position: relative;
+        background-color: #A6B91A
+    }
+
+    .rock{
+        overflow: hidden;
+        position: relative;
+        background-color: #B6A136;
+    } 
+
+    .ghost{
+        overflow: auto;
+        position: relative;
+        background-color: #735797;
+    }
+
+    .dragon{
+    overflow: auto;
+        position: relative;
+        background-color: #6F35FC
+    }
+
+    .dark{
+        overflow: auto;
+        position: relative;
+        background-color: #705746
+    }
+
+    .steel{
+        overflow: auto;
+        position: relative;
+        background-color: #B7B7CE
+    }
+
+    .fairy{
+        overflow: auto;
+        position: relative;
+        background-color: #D685AD
+    } 
+
 }
