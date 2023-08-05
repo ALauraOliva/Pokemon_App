@@ -783,7 +783,7 @@
 
     .contenedorImg img{
         min-height: calc(100vh * 0.4) ;
-        max-width: fit-content;
+        max-width: 90vw;
         animation: bounce2 .8s alternate infinite ease-in;
     }
 
