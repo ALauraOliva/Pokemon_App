@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import styledNav from './Nav.module.css'
 import logotipo from '../../Images/Logo-Pokemon.png'
 import styleSearchBar from '../../components/SearchBar/SearchBar.module.css'
-import {  useEffect } from "react";
 import { setOriginPokemons } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,11 +10,6 @@ export const Nav = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const originPokemon = useSelector((state) => state.originPokemon);
-
-    // useEffect(() => {
-    //     // Al montar el componente, actualizar el estado en el store con el valor del origen
-    //     dispatch(setOriginPokemons(originPokemon));
-    // }, [originPokemon, dispatch]);
 
     const originCheck = (event) => {
         dispatch(setOriginPokemons(event.target.value));
