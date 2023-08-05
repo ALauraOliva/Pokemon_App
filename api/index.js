@@ -19,14 +19,13 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js'); //?este es mi conexion sequelize <<
-const saveApiData = require('./src/controllers/saveApiData.js')
-const getPokemonTypes = require('./src/controllers/getPokemonTypes.js')
+const port = process.env.PORT || 3001;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   console.log('1. DB super conectada')
   
-  server.listen(3001, () => {
-    console.log('2. Server listening at 3001'); // eslint-disable-line no-console
+  server.listen(port, () => {
+    console.log('2. Server listening at ' + port); // eslint-disable-line no-console
   });
 });
