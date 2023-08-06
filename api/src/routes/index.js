@@ -6,6 +6,10 @@ const createPokemon = require('../controllers/createPokemon')
 const getPokemonTypes = require('../controllers/getPokemonTypes')
 const getAllPokemonsDB = require('../controllers/getAllPokemonsDB')
 
+router.get('/', async (_req, res) => { //?retorna los primeros 20 pokemones para HOME 
+    res.send('¡Hola, mundo!');
+})
+
 router.get('/pokemons', async (_req, res) => { //?retorna los primeros 20 pokemones para HOME 
     try {
         const allPokemons = await getAllPokemons();
