@@ -573,7 +573,7 @@
     text-decoration: none;
 }
 
-@media screen and (max-width: 280px) {
+@media screen and (max-width: 380px) {
     .contenedorBorde{
         background-color: #FFE264;
         width: 250px;
