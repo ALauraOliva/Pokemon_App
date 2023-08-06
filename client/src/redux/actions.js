@@ -1,11 +1,12 @@
 //?ACTIONS aqui se puede llamar a APIS en el REDUCER solo es para cambiar el store STATE
 import { GET_POKEMONS_HOME, GET_POKEMONS_DB, GET_ALL_POKEMONS, GET_POKEMON_DETAIL, FILTER_POKEMONS, FILTER_BY_TYPE, ORDER_POKES, ORDER_ATTACK, GET_TYPES, SET_ORIGIN_POKEMONS, RESET_FILTER, SET_PAGINA, SET_FILTERS, CREATE_POKEMON, FILTER_ADD_NEW_ONE } from "./action-types";
 import axios from 'axios';
+const apiUrl = 'https://pokedex-server-7fgg.onrender.com';
 
 export const getPokemonsHome = () => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.get('http://localhost:3001/pokemons');
+            const {data} = await axios.get(`${apiUrl}/pokemons`);
             dispatch({type : GET_POKEMONS_HOME, payload: data})
         } catch (error) {
             alert("error: " + error.response.data.error)
@@ -16,7 +17,7 @@ export const getPokemonsHome = () => {
 export const getPokemonsDB = () => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.get('http://localhost:3001/pokemonsdb');
+            const {data} = await axios.get(`${apiUrl}/pokemonsdb`);
             dispatch({type : GET_POKEMONS_DB, payload: data})
         } catch (error) {
             alert("error: " + error.response.data.error)
@@ -56,7 +57,7 @@ export const filterPokemons = (searchedValue) => async (dispatch, getState) => {
                   name: searchedValue,
                 };
               const response = await axios.get(
-                `http://localhost:3001/pokemons/name`, {params});
+                `${apiUrl}/pokemons/name`, {params});
               dispatch({ type: FILTER_ADD_NEW_ONE, payload: [response.data] });
             } catch (error) {
               // Manejo de errores si la API falla
@@ -79,7 +80,7 @@ export const filterByType = (type) => {
 export const getTypes = () => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.get('http://localhost:3001/types');
+            const {data} = await axios.get(`${apiUrl}/types`);
             dispatch({type : GET_TYPES, payload: data})
         } catch (error) {
             alert("error: " + error.response.data.error)
@@ -119,7 +120,7 @@ export const createPokemon = (pokemonData) => {
             alert('Debes completar los datos')
         } else {
             try {
-                const { data } = await axios.post('http://localhost:3001/pokemons', pokemonData);
+                const { data } = await axios.post(`${apiUrl}/pokemons`, pokemonData);
                 dispatch({ type: CREATE_POKEMON, payload: data });
                 alert("Pokemon Created");
             } catch (error) {
