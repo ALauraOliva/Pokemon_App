@@ -58,6 +58,7 @@
     align-items: center;
     justify-content: flex-start;    
     font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+    height: fit-content;
 }
 
 .titulo{

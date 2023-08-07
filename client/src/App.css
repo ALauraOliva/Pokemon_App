@@ -6,6 +6,7 @@
   text-align: center;
   background-image: url('./Images/BackgroundPokebolas.png');
   background-size: cover;
+  min-height: var(--windowHeight);
 }
 
 .App-logo {
