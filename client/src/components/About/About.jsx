@@ -7,7 +7,7 @@ export const About = () => {
   return (
     <div className={styleAbout.aboutcontainer}>
       
-      <h2 className={styleAbout.abouttitle}>About Our Pokemon App</h2>
+      <h2 className={styleAbout.abouttitle}>About Pokemon App</h2>
 
       <div className={styleAbout.aboutcontent}>
           <div className={styleAbout.aboutImg}>
